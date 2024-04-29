@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>What Country the Continent Is In</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename= 'css/capital.css') }}">
+  </head>
+  <body>
+    <h1>What Continent the Country Is In</h1>
+    <p>Here you can see which continent a country is in!</p>
+    <div id="controlid">
+       <p>Q3</p>
+    </div>
+
+    <script>
+        var b = JSON.parse({{ country_continent | tojson | safe}});
+        var table = '<table border="1">';
+
+        table += '<tr><th>Countries</td><th>Continent</td></tr>'
+        for (var qnum in b) {
+          var value = b[qnum];
+          const myArray = value.split(" : ");
+          country = myArray[0];
+          continent = myArray[1];
+
+          table += '<tr>'
+          table += '<td>'
+          table += country
+          table += '</td>'
+          table += '<td>'
+          table += continent
+          table += '</td>'
+          table += '</tr>'
+        }
+        table += '<tr><td>Zimbabwe</td><td>Africa</td></tr>'
+        table  += '</table>';
+        var myDiv = document.getElementById("controlid");
+        myDiv.innerHTML = table;
+   </script>
+ </body>
+</html>

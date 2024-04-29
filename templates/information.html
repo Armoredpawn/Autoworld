@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Information</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename= 'css/information.css') }}">
+    <h1><u>Information<u></h1>
+  </head>
+  <body>
+    <center> 
+      <a href= "{{url_for('capital')}}" class="button">Capitals</a>
+      <a href= "{{url_for('continent')}}" class="button">What Continent It Is In</a><br>
+      <a href= "{{url_for('population')}}" class="button">Population</a><br>
+      <a href= "{{url_for('language')}}" class="button">Languages</a>
+      <a href= "{{url_for('currency')}}" class="button">Currency</a>
+      <a href= "{{url_for('famous_places')}}" class="button">Famous Places</a>
+    </center>
+  </body>
+</html>

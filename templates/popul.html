@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Population</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename= 'css/capital.css') }}">
+  </head>
+  <body>
+    <h1>Population</h1>
+    <p>Here you can see what the population of each country is!</p>
+    <div id="controlid">
+       <p>Q3</p>
+    </div>
+
+    <script>
+        var b = JSON.parse({{ country_population | tojson | safe}});
+        var table = '<table border="1">';
+
+        table += '<tr><th>Countries</td><th>Population</td></tr>'
+
+        for (var qnum in b) {
+          var value = b[qnum];
+          const myArray = value.split(" : ");
+          country = myArray[0];
+          population = myArray[1];
+
+          table += '<tr>'
+          table += '<td>'
+          table += country
+          table += '</td>'
+          table += '<td>'
+          table += population
+          table += '</td>'
+          table += '</tr>'
+        }
+        table += '<tr><td>Zimbabwe</td><td>14.9 million</td></tr>'
+        table  += '</table>';
+        var myDiv = document.getElementById("controlid");
+        myDiv.innerHTML = table;
+   </script>
+ </body>
+</html>

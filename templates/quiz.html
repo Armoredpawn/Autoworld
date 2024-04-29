@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Quizzes</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename= 'css/quiz.css') }}">
+  </head>
+     
+ <body>
+    <h1><u>Quizzes<u></h1>    
+      <a href= "{{url_for('qcapital')}}" class="button">Capitals</a>
+      <a href= "{{url_for('qcontinent')}}" class="button">What Continent it is in</a>
+      <a href= "{{url_for('qpopulation')}}" class="button">Population</a>
+      <a href= "{{url_for('qlanguage')}}" class="button">Languages</a>
+      <a href= "{{url_for('qcurrency')}}" class="button">Currency</a>
+      <a href= "{{url_for('qfamous_places')}}" class="button"> Famous Places</a> 
+ </body>
+</html>

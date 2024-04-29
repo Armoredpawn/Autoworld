@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Famous Places</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename= 'css/capital.css') }}">
+  </head>
+  <body>
+    <h1>Famous Places</h1>
+    <p>Here, you can learn about the most famous place in every single country! Maybe, if you visit a foreign country, you could go to this famous site!</p>
+
+    <div id="controlid">
+      <p>Q3</p>
+    </div>
+
+    <script>
+        var b = JSON.parse({{ country_sites | tojson | safe}});
+        var table = '<table border="1">';
+        var c = 'https://encrypted-tbn2.gstatic.com/licensed-image?q=tbn:ANd9GcSXBKsn9CdVprXFGN5yoHHldG7V52mVfSrwh8Wg48uOBwQ5VM4IwQAM8pxCe-IE83hPLKdndi0ycsEBdPTlcrZwug';
+        var d = 'Zimbabwe';
+        var e = 'Khami Ruins';
+        table += '<tr><th>Countries</td><th>Famous Site</td></tr>'
+        
+        for (var qnum in b) {
+          var value = b[qnum];
+          const myArray = value.split(" : ");
+          country = myArray[0];
+          famous_place = myArray[1];
+          link = myArray[2];
+
+          table += '<tr>'
+          table += '<td>'
+          table += country
+          table += '</td>'
+          table += '<td>'
+          table += '<a href='
+          table += link
+          table += '>'
+          table += '<li>'
+          table += famous_place
+          table += '</li></a>'
+          table += '</td>'
+          table += '</tr>'
+        }
+          table += '<tr>'
+          table += '<td>'
+          table += d
+          table += '</td>'
+          table += '<td>'
+          table += '<a href='
+          table += c
+          table += '>'
+          table += '<li>'
+          table += e
+          table += '</li></a>'
+          table += '</td>'
+          table += '</tr>'
+
+        table  += '</table>';
+        var myDiv = document.getElementById("controlid");
+        myDiv.innerHTML = table;
+    </script>
+
+  </body>
+</html>

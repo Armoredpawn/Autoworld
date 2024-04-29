@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Currency</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename= 'css/capital.css') }}">
+  </head>
+  <body>
+    <h1>Type of Currency</h1>
+    <p>Here, you can see which type of currency, or money, people use in each country!</p>
+    <div id="controlid">
+      <p>Q3</p>
+    </div>
+
+    <script>
+        var b = JSON.parse({{ country_currency | tojson | safe}});
+        var table = '<table border="1">';
+
+        table += '<tr><th>Countries</td><th>Currency</td></tr>'
+
+        for (var qnum in b) {
+          var value = b[qnum];
+          const myArray = value.split(" : ");
+          country = myArray[0];
+          currency = myArray[1];
+
+          table += '<tr>'
+          table += '<td>'
+          table += country
+          table += '</td>'
+          table += '<td>'
+          table += currency
+          table += '</td>'
+          table += '</tr>'
+        }
+        table += '<tr><td>Zimbabwe</td><td>Zimbabwe dollar</td></tr>'
+        table  += '</table>';
+        var myDiv = document.getElementById("controlid");
+        myDiv.innerHTML = table;
+    </script>
+  </body>
+</html>

@@ -1,0 +1,32 @@
+body {
+     background: #ccf3ff
+}
+
+h1 {
+   font-size: 110px;
+   text-align: center;
+}
+
+.center {
+  display: inline-block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}
+
+p {
+  font-size: 20px
+}
+
+.button {
+        background-color: #99e6ff;
+        border: none;
+        color: black;
+        padding: 15px 32px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 80px;
+        margin: 8px 25px;
+        cursor: pointer;
+}

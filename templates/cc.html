@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Currency Converter</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename= 'css/capital.css') }}">
+  </head>
+  <body>
+    <h1>Capitals</h1>
+    <p>Here, you can see how much money you have in another currency! How much is your U.S. Dollar worth in Euros?<br></p>
+
+  <div id="controlid">
+     
+  </div>
+
+  <script>
+        var b = JSON.parse({{ country_capitals | tojson | safe}});
+        var table = '<table border="1">';
+        
+        table += '<tr><th>Countries</td><th>Capitals</td></tr>'
+
+        for (var qnum in b) {
+          var value = b[qnum];
+          const myArray = value.split(" : ");
+          country = myArray[0];
+          capital = myArray[1];
+
+	  table += '<tr>'
+          table += '<td>'
+	  table += country
+          table += '</td>'
+          table += '<td>'
+          table += capital
+          table += '</td>'
+	  table += '</tr>'
+       }
+       table += '<tr><td>Zimbabwe</td><td>Harare</td></tr>'
+       table  += '</table>'; 
+       var myDiv = document.getElementById("controlid");
+       myDiv.innerHTML = table;
+  </script>
+
+  </body>
+</html>

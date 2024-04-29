@@ -1,0 +1,47 @@
+h1, h2, p{
+  Text-align: Center;
+}
+
+h1, h2{
+  Text-decoration: Underline;
+  margin: 75px
+}
+
+p{
+  Text-align: left;
+  width: 40%;
+  background: silver;
+}
+
+img{
+  width: 750px;
+  display: inline-block;
+  padding: 30px 20px;
+  padding-top: 20px;
+  border-style: ridge;
+  border-width: 40px;
+  border-color: black;
+  margin: 10;
+  overflow-y: auto;
+  background: rgb(29, 1, 1);
+}
+body{
+  background: gold;
+}
+
+nav{
+  width: 100%;
+  text-align: Center;
+  background-color: orange;
+  height: 40px;
+  line-height:40px;
+  position: fixed;
+  top: 0;
+}
+
+nav a{
+  color: green;
+  font-family: Arial, Helvetica, sans-serif;
+  text-decoration: none; 
+  margin: 0px 9px
+}

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Auto-World</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename= 'css/style.css') }}">
+  </head>
+  <body>
+    <h1>Auto-World</h1>
+    <img src="https://upload.wikimedia.org/wikipedia/commons/3/31/A_large_blank_world_map_with_oceans_marked_in_blue-edited.png" class="center">
+         
+    <p>If you ever visit a foreign country, this website can tell you details about that country, such as the standard currency, what continent it is in, and famous places in the country. The quizzes are just for fun, if you want to test yourself.</p>
+
+    <nav>
+      <a href="{{url_for('information')}}">Learn New Information</a>
+      <a href="{{url_for('quiz')}}">Take a Quiz</a>
+    </nav>
+    
+  </body>
+</html>
+
+

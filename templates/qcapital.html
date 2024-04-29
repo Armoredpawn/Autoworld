@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Capital Quiz</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename= 'css/qcapital.css') }}">
+  </head>
+     
+ <body>
+    <h1>Capital Quiz</h1>
+    <h3>Directions</h3>
+    <p>In this quiz, once you have finished, press the submit button. The CORRECT answers will be highlighted green, and your score will be shown right below the submit button. If you want to take the quiz again, just refresh, and a brand new set of questions will be generated for you. Good luck on the quiz!</p>
+    
+    <br>
+
+    <div id="Q1">
+      <p>Q1</p>
+    </div>
+    <input type="radio" name="JTP" id="A10" value="A"><label>A</label><br>
+    <input type="radio" name="JTP" id="A11" value="B"><label>B</label><br>
+    <input type="radio" name="JTP" id="A12" value="C"><label>C</label><br>
+    <input type="radio" name="JTP" id="A13" value="D"><label>D</label><br>
+    
+    <br>
+   
+    <div id="Q2">
+      <br><p>Q2</p>
+    </div>
+    <input type="radio" name="KTP" id="A20" value="A"><label>A</label><br>
+    <input type="radio" name="KTP" id="A21" value="B"><label>B</label><br>
+    <input type="radio" name="KTP" id="A22" value="C"><label>C</label><br>
+    <input type="radio" name="KTP" id="A23" value="D"><label>D</label><br>
+
+    <br>
+
+    <div id="Q3">
+      <p>Q3</p>
+    </div>
+    <input type="radio" name="LTP" id="A30" value="A"><label>A</label><br>
+    <input type="radio" name="LTP" id="A31" value="B"><label>B</label><br>
+    <input type="radio" name="LTP" id="A32" value="C"><label>C</label><br>
+    <input type="radio" name="LTP" id="A33" value="D"><label>D</label><br>
+
+    <br>
+
+    <div id="Q4">
+      <p>Q4</p>
+    </div>
+    <input type="radio" name="MTP" id="A40" value="A"><label>A</label><br>
+    <input type="radio" name="MTP" id="A41" value="B"><label>B</label><br>
+    <input type="radio" name="MTP" id="A42" value="C"><label>C</label><br>
+    <input type="radio" name="MTP" id="A43" value="D"><label>D</label><br>
+
+    <br>
+
+    <div id="Q5">
+      <p>Q5</p>
+    </div>
+    <input type="radio" name="NTP" id="A50" value="A"><label>A</label><br>
+    <input type="radio" name="NTP" id="A51" value="B"><label>B</label><br>
+    <input type="radio" name="NTP" id="A52" value="C"><label>C</label><br>
+    <input type="radio" name="NTP" id="A53" value="D"><label>D</label><br>
+
+    <br>
+
+    <div id="Q6">
+      <p>Q6</p>
+    </div>
+    <input type="radio" name="OTP" id="A60" value="A"><label>A</label><br>
+    <input type="radio" name="OTP" id="A61" value="B"><label>B</label><br>
+    <input type="radio" name="OTP" id="A62" value="C"><label>C</label><br>
+    <input type="radio" name="OTP" id="A63" value="D"><label>D</label><br>
+
+    <br>
+
+    <div id="Q7">
+      <p>Q7</p>
+    </div>
+    <input type="radio" name="PTP" id="A70" value="A"><label>A</label><br>
+    <input type="radio" name="PTP" id="A71" value="B"><label>B</label><br>
+    <input type="radio" name="PTP" id="A72" value="C"><label>C</label><br>
+    <input type="radio" name="PTP" id="A73" value="D"><label>D</label><br>
+
+    <br>
+
+    <div id="Q8">
+      <p>Q8</p>
+    </div>
+    <input type="radio" name="QTP" id="A80" value="A"><label>A</label><br>
+    <input type="radio" name="QTP" id="A81" value="B"><label>B</label><br>
+    <input type="radio" name="QTP" id="A82" value="C"><label>C</label><br>
+    <input type="radio" name="QTP" id="A83" value="D"><label>D</label><br>
+
+    <br>
+    
+    <div id="Q9">
+      <p>Q9</p>
+    </div>
+    <input type="radio" name="RTP" id="A90" value="A"><label>A</label><br>
+    <input type="radio" name="RTP" id="A91" value="B"><label>B</label><br>
+    <input type="radio" name="RTP" id="A92" value="C"><label>C</label><br>
+    <input type="radio" name="RTP" id="A93" value="D"><label>D</label><br>
+
+    <br>
+   
+    <div id="Q10">
+      <p>Q10</p>
+    </div>
+    <input type="radio" name="STP" id="A100" value="A"><label>A</label><br>
+    <input type="radio" name="STP" id="A101" value="B"><label>B</label><br>
+    <input type="radio" name="STP" id="A102" value="C"><label>C</label><br>
+    <input type="radio" name="STP" id="A103" value="D"><label>D</label><br>
+
+    <br>
+
+    <BUTTON type="button" onclick="checkAnswers(this)" />
+    <FONT size=5 bold>Submit Answers</FONT>
+    </BUTTON>    
+
+     <div id="ascore">
+      <p></p>
+    </div>
+
+    <script>
+        var b = JSON.parse({{ json_questions | tojson | safe}});
+        qnum = 1;
+        for (var country in b){
+          var value = b[country];
+          qname = "Q" + qnum;
+          var myDiv = document.getElementById(qname);
+          myDiv.innerHTML = "What is the capital of " + country + "?";
+
+          for (let count=0; count<4; count++){
+            var capital = value[count];
+            name = "A" + qnum + count;
+            var myDiv = document.getElementById(name);
+            myDiv.nextSibling.textContent = capital;
+          }
+      
+          if (qnum === 10) { break; } 
+          qnum = qnum + 1;
+        } 
+      
+        function checkAnswers() {
+          var country_capitals = JSON.parse({{ json_answers | tojson | safe}});
+          score = 0;
+          for (let acount=1; acount<11; acount++){
+            qname = "Q" + acount;
+            var myDiv = document.getElementById(qname);
+            text = myDiv.innerHTML;
+            country = text.substring(23, text.length-1);
+            answer = country_capitals[country];
+
+            for (let count=0; count<4; count++){
+              name = "A" + acount + count;
+              var myDiv = document.getElementById(name);
+              var aname = myDiv.nextSibling.textContent;
+              if(myDiv.checked == true){
+                if(aname === answer){
+                  score++;              
+                }
+              }
+              if(aname === answer){
+                myDiv.nextSibling.style.background='#42FF33';
+            }
+          }
+        }
+      
+        var myDiv2 = document.getElementById("ascore");
+        text = "Your score on this quiz was " + score + " out of 10!";
+        text = text.fontsize(6);
+        myDiv2.innerHTML = text;
+        myDiv2.style.fontWeight = "bold";
+      }  
+    </script>
+ </body>
+</html>
