@@ -7,3 +7,4 @@ Instructions:
 --> conda activate AutoWorld
 --> Activate the conda environment: conda activate Autoworld
 --> Run the command "flask run" -> Running on http://127.0.0.1:5000
+
